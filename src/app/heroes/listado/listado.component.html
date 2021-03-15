@@ -1,0 +1,35 @@
+<p>listado works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            
+            <ul>
+                <li *ngFor=" let heroe of heroes; let i = index">
+                    {{ i }} - {{ heroe }}
+    
+                </li>
+            </ul>
+    
+        </div>
+    
+        <div *ngIf="heroesBorrados.length; else noBorrado" class="col-6">
+            <h3>HEROES BORRADOS: </h3>
+            <ul>
+                <li *ngFor=" let heroeBorrado of heroesBorrados; let i = index">
+                    {{ i }} - {{ heroeBorrado }}
+    
+                </li>
+            </ul>
+    
+        </div>
+        <!-- ng-template es para hacer referencia a algo que queremos mostrar, las variables con # se usan solo en el html -->
+        <ng-template #noBorrado>
+            <h3>No ha borrado nada.</h3>
+        </ng-template>
+
+
+    </div>
+</div>
+
+
+<button (click) = "borrarHeroe()">Borrar</button>
